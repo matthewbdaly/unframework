@@ -6,9 +6,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
+use League\Container\Container;
 
 $routes = include __DIR__.'/../routes.php';
 
+$container = new Container;
 $request = Request::createFromGlobals();
 $context = new RequestContext();
 $context->fromRequest($request);
