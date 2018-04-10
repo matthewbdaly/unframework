@@ -11,6 +11,7 @@ use League\Container\Container;
 $routes = include __DIR__.'/../routes.php';
 
 $container = new Container;
+$container->addServiceProvider('App\Providers\LoggerProvider');
 $request = Request::createFromGlobals();
 $context = new RequestContext();
 $context->fromRequest($request);
