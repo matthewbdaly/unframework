@@ -24,6 +24,8 @@ $twig = new Twig_Environment($loader, array(
 try {
     extract($matcher->match($request->getPathInfo()), EXTR_SKIP);
     ob_start();
+    $logger = $container->get('Psr\Log\LoggerInterface');
+    $logger->error('Testing');
     $template = $twig->load(sprintf('%s.html', $_route));
     $template->display();
     $response = new Response(ob_get_clean());
