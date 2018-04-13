@@ -8,19 +8,18 @@ use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use League\Container\Container;
 
+define(BASE_DIR, getcwd());
 $routes = include __DIR__.'/../routes.php';
 
 $container = new Container;
 $container->addServiceProvider('App\Providers\LoggerProvider');
 $container->addServiceProvider('App\Providers\CacheProvider');
+$container->addServiceProvider('App\Providers\TwigProvider');
 $request = Request::createFromGlobals();
 $context = new RequestContext();
 $context->fromRequest($request);
 $matcher = new UrlMatcher($routes, $context);
-$loader = new Twig_Loader_Filesystem(__DIR__.'/../app/views');
-$twig = new Twig_Environment($loader, array(
-    'cache' => __DIR__.'/../cache/views',
-));
+$twig = $container->get('Twig_Environment');
 
 try {
     extract($matcher->match($request->getPathInfo()), EXTR_SKIP);
