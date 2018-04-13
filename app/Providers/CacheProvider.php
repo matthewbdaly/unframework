@@ -19,7 +19,7 @@ class CacheProvider extends AbstractServiceProvider
              ->add('Psr\Cache\CacheItemPoolInterface', function () {
                  $driver = new FileSystem;
                  $pool = new Pool($driver);
-                 return $driver;
+                 return $pool;
              });
     }
 }
