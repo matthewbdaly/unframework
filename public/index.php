@@ -12,6 +12,7 @@ $routes = include __DIR__.'/../routes.php';
 
 $container = new Container;
 $container->addServiceProvider('App\Providers\LoggerProvider');
+$container->addServiceProvider('App\Providers\CacheProvider');
 $request = Request::createFromGlobals();
 $context = new RequestContext();
 $context->fromRequest($request);
