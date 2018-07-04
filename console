@@ -6,5 +6,5 @@ require_once __DIR__.'/bootstrap.php';
 use Symfony\Component\Console\Application;
 
 $app = new Application();
-$app->add(new App\Console\Shell);
+$app->add($container->get('App\Console\Shell'));
 $app->run();
