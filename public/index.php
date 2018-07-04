@@ -13,7 +13,8 @@ $container->share('emitter', Zend\Diactoros\Response\SapiEmitter::class);
 
 $router = new League\Route\RouteCollection($container);
 
-$router->get('/', 'App\Controllers\HomeController::index');
+$router->get('/', 'App\Controllers\HomeController::index')
+    ->middleware(new App\Middleware\SetHeader);
 
 $response = $router->dispatch($container->get('request'), $container->get('response'));
 
