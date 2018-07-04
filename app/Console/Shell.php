@@ -5,11 +5,20 @@ namespace App\Console;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use League\Container\Container;
 use Psy\Shell as Psysh;
 use Psy\Configuration;
 
 class Shell extends Command
 {
+    protected $container;
+    
+    public function __construct(Container $container)
+    {
+        parent::__construct();
+        $this->container = $container;
+    }
+    
     protected function configure()
     {
         $this->setName('shell')
@@ -22,6 +31,7 @@ class Shell extends Command
         $config = new Configuration([
             'updateCheck' => 'never'
         ]);
+        $container = $this->container;
 
         $shell = new Psysh($config);
         $shell->run();

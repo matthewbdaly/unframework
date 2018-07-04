@@ -11,6 +11,7 @@ $container = new Container;
 $container->delegate(
     new ReflectionContainer
 );
+$container->addServiceProvider('App\Providers\ContainerProvider');
 $container->addServiceProvider('App\Providers\CacheProvider');
 $container->addServiceProvider('App\Providers\EventProvider');
 $container->addServiceProvider('App\Providers\LoggerProvider');
