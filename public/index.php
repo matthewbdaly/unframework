@@ -12,8 +12,9 @@ define(BASE_DIR, getcwd());
 $routes = include __DIR__.'/../routes.php';
 
 $container = new Container;
-$container->addServiceProvider('App\Providers\LoggerProvider');
 $container->addServiceProvider('App\Providers\CacheProvider');
+$container->addServiceProvider('App\Providers\EventProvider');
+$container->addServiceProvider('App\Providers\LoggerProvider');
 $container->addServiceProvider('App\Providers\TwigProvider');
 $request = Request::createFromGlobals();
 $context = new RequestContext();
