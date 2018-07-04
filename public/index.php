@@ -4,7 +4,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use League\Container\Container;
 
-define(BASE_DIR, getcwd());
+define('BASE_DIR', getcwd());
 
 $container = new Container;
 $container->addServiceProvider('App\Providers\CacheProvider');
