@@ -3,8 +3,6 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use League\Container\Container;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 
 define(BASE_DIR, getcwd());
 
@@ -25,11 +23,7 @@ $container->share('emitter', Zend\Diactoros\Response\SapiEmitter::class);
 
 $route = new League\Route\RouteCollection($container);
 
-$route->map('GET', '/', function (ServerRequestInterface $request, ResponseInterface $response) {
-    $response->getBody()->write('<h1>Hello, World!</h1>');
-
-    return $response;
-});
+$route->map('GET', '/', 'App\Controllers\HomeController::index');
 
 $response = $route->dispatch($container->get('request'), $container->get('response'));
 
