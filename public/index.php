@@ -11,10 +11,10 @@ $container->share('request', function () {
 
 $container->share('emitter', Zend\Diactoros\Response\SapiEmitter::class);
 
-$route = new League\Route\RouteCollection($container);
+$router = new League\Route\RouteCollection($container);
 
-$route->map('GET', '/', 'App\Controllers\HomeController::index');
+$router->map('GET', '/', 'App\Controllers\HomeController::index');
 
-$response = $route->dispatch($container->get('request'), $container->get('response'));
+$response = $router->dispatch($container->get('request'), $container->get('response'));
 
 $container->get('emitter')->emit($response);
