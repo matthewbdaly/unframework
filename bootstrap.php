@@ -13,6 +13,7 @@ $container->delegate(
 );
 $container->addServiceProvider('App\Providers\ContainerProvider');
 $container->addServiceProvider('App\Providers\CacheProvider');
+$container->addServiceProvider('App\Providers\DoctrineProvider');
 $container->addServiceProvider('App\Providers\EventProvider');
 $container->addServiceProvider('App\Providers\LoggerProvider');
 $container->addServiceProvider('App\Providers\TwigProvider');
