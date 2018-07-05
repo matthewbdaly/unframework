@@ -20,8 +20,8 @@ class DoctrineProvider extends AbstractServiceProvider
                  $paths = ['app/Doctrine/Entities'];
                  $isDevMode = false;
                  $dbParams = array(
-                     'driver' => 'pdo_sqlite',
-                     'path' => 'db.sqlite'
+                     'driver' => getenv('DB_TYPE', 'pdo_sqlite'),
+                     'path' => getenv('DB_PATH'),
                  );
                  $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
                  return EntityManager::create($dbParams, $config);

@@ -5,6 +5,9 @@ require_once __DIR__.'/vendor/autoload.php';
 use League\Container\Container;
 use League\Container\ReflectionContainer;
 
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
 define('BASE_DIR', getcwd());
 
 $container = new Container;
