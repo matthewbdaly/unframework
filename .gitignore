@@ -1,3 +1,4 @@
 vendor/
 *.swp
 logs/
+db.sqlite
