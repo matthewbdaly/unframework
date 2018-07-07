@@ -2,3 +2,4 @@ vendor/
 *.swp
 logs/
 db.sqlite
+.env
