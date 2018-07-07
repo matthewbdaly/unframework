@@ -12,8 +12,16 @@ if (!defined('BASE_DIR')) {
     define('BASE_DIR', __DIR__);
 }
 
+error_reporting(E_ALL);
+$environment = getenv('APP_ENV');
 $whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+if ($environment !== 'production') {
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+} else {
+    $whoops->pushHandler(new \Whoops\Handler\CallbackHandler(function ($exception, $inspector, $run) {
+        // Do stuff
+    }));
+}
 $whoops->register();
 
 $container = new Container;
