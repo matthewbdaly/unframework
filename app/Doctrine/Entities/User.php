@@ -18,7 +18,7 @@ class User
     /**
      * @Column(type="string",length=200)
      */
-    private $name;
+    private $name = '';
 
     public function getName(): string
     {
