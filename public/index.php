@@ -10,6 +10,13 @@ $container->share('request', function () {
 });
 
 $container->share('emitter', Zend\Diactoros\Response\SapiEmitter::class);
-$response = $router->dispatch($container->get('request'), $container->get('response'));
+try {
+    $response = $router->dispatch($container->get('request'), $container->get('response'));
+} catch (\League\Route\Http\Exception\NotFoundException $e) {
+    $twig = $container->get('Twig_Environment');
+    $tpl = $twig->load('404.html');
+    $response = $container->get('response');
+    $response->getBody()->write($tpl->render());
+}
 
 $container->get('emitter')->emit($response);
