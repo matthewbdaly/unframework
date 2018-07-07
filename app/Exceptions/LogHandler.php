@@ -6,8 +6,9 @@ use Psr\Log\LoggerInterface;
 use Throwable;
 use Whoops\Exception\Inspector;
 use Whoops\RunInterface;
+use App\Contracts\Exceptions\Handler;
 
-class LogHandler
+class LogHandler implements Handler
 {
     public function __construct(LoggerInterface $logger)
     {

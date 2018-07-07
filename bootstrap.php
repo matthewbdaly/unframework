@@ -14,20 +14,11 @@ if (!defined('BASE_DIR')) {
 
 error_reporting(E_ALL);
 $environment = getenv('APP_ENV');
-$whoops = new \Whoops\Run;
-if ($environment !== 'production') {
-    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-} else {
-    $whoops->pushHandler(new \Whoops\Handler\CallbackHandler(function ($exception, $inspector, $run) {
-        // Do stuff
-    }));
-}
-$whoops->register();
-
 $container = new Container;
 $container->delegate(
     new ReflectionContainer
 );
+
 $container->addServiceProvider('App\Providers\ContainerProvider');
 $container->addServiceProvider('App\Providers\CacheProvider');
 $container->addServiceProvider('App\Providers\DoctrineProvider');
@@ -37,6 +28,16 @@ $container->addServiceProvider('App\Providers\LoggerProvider');
 $container->addServiceProvider('App\Providers\SessionProvider');
 $container->addServiceProvider('App\Providers\ShellProvider');
 $container->addServiceProvider('App\Providers\TwigProvider');
+
+$whoops = new \Whoops\Run;
+if ($environment !== 'production') {
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+} else {
+    $handler = $container->get('App\Exceptions\LogHandler');
+    $whoops->pushHandler(new \Whoops\Handler\CallbackHandler($handler));
+}
+$whoops->register();
+
 
 $router = new League\Route\RouteCollection($container);
 
