@@ -12,6 +12,10 @@ if (!defined('BASE_DIR')) {
     define('BASE_DIR', __DIR__);
 }
 
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
 $container = new Container;
 $container->delegate(
     new ReflectionContainer
