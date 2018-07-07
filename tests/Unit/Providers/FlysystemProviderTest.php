@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class FlysystemProviderTest extends TestCase
 {
-    public function testCreateEventEmitter()
+    public function testCreateFlysystem()
     {
         $fs = $this->container->get('League\Flysystem\Filesystem');
         $this->assertInstanceOf('League\Flysystem\Filesystem', $fs);
