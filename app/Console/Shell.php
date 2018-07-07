@@ -12,11 +12,14 @@ use Psy\Configuration;
 class Shell extends Command
 {
     protected $container;
+
+    protected $shell;
     
-    public function __construct(ContainerInterface $container)
+    public function __construct(ContainerInterface $container, Psysh $shell)
     {
         parent::__construct();
         $this->container = $container;
+        $this->shell = $shell;
     }
     
     protected function configure()
@@ -28,12 +31,8 @@ class Shell extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $config = new Configuration([
-            'updateCheck' => 'never'
-        ]);
         $container = $this->container;
 
-        $shell = new Psysh($config);
-        $shell->run();
+        $this->shell->run();
     } 
 }
