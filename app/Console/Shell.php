@@ -34,5 +34,5 @@ class Shell extends Command
         $container = $this->container;
 
         $this->shell->run();
-    } 
+    }
 }

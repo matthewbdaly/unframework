@@ -23,7 +23,8 @@
         "phpunit/phpunit": "^7.0",
         "mockery/mockery": "^1.0",
         "psy/psysh": "^0.8.18",
-        "php-coveralls/php-coveralls": "^2.1"
+        "php-coveralls/php-coveralls": "^2.1",
+        "squizlabs/php_codesniffer": "^3.3"
     },
     "license": "MIT",
     "authors": [
