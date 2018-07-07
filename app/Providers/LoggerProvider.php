@@ -18,7 +18,7 @@ class LoggerProvider extends AbstractServiceProvider
         $this->getContainer()
              ->add('Psr\Log\LoggerInterface', function () {
                  $log = new Logger('app');
-                 $log->pushHandler(new StreamHandler('../logs/log', Logger::WARNING));
+                 $log->pushHandler(new StreamHandler('../logs/site.log', Logger::WARNING));
                  return $log;
              });
     }
