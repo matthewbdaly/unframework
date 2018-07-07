@@ -8,7 +8,9 @@ use League\Container\ReflectionContainer;
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
-define('BASE_DIR', getcwd());
+if (!defined('BASE_DIR')) {
+    define('BASE_DIR', __DIR__);
+}
 
 $container = new Container;
 $container->delegate(

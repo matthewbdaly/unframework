@@ -1,0 +1,14 @@
+<?php
+
+namespace Tests\Unit\Providers;
+
+use Tests\TestCase;
+
+class TwigProviderTest extends TestCase
+{
+    public function testCreateTwig()
+    {
+        $emitter = $this->container->get('Twig_Environment');
+        $this->assertInstanceOf('Twig_Environment', $emitter);
+    }
+}
