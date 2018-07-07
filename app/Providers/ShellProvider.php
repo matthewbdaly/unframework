@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use Psy\Shell;
+use Psy\Configuration;
 
 class ShellProvider extends AbstractServiceProvider
 {

@@ -23,6 +23,7 @@ $container->addServiceProvider('App\Providers\EventProvider');
 $container->addServiceProvider('App\Providers\FlysystemProvider');
 $container->addServiceProvider('App\Providers\LoggerProvider');
 $container->addServiceProvider('App\Providers\SessionProvider');
+$container->addServiceProvider('App\Providers\ShellProvider');
 $container->addServiceProvider('App\Providers\TwigProvider');
 
 $router = new League\Route\RouteCollection($container);
