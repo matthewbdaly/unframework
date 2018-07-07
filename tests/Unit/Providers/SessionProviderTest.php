@@ -9,6 +9,7 @@ class SessionProviderTest extends TestCase
     public function testCreateSession()
     {
         $session = $this->container->get('Symfony\Component\HttpFoundation\Session\SessionInterface');
+        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\SessionInterface', $session);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\Session', $session);
     }
 }

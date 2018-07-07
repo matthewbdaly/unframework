@@ -9,6 +9,7 @@ class LoggerProviderTest extends TestCase
     public function testCreateLogger()
     {
         $logger = $this->container->get('Psr\Log\LoggerInterface');
+        $this->assertInstanceOf('Psr\Log\LoggerInterface', $logger);
         $this->assertInstanceOf('Monolog\Logger', $logger);
     }
 }

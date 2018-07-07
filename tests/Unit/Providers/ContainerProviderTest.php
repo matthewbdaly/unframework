@@ -9,6 +9,7 @@ class ContainerProviderTest extends TestCase
     public function testCreateContainer()
     {
         $container = $this->container->get('League\Container\ContainerInterface');
+        $this->assertInstanceOf('League\Container\ContainerInterface', $container);
         $this->assertInstanceOf('League\Container\Container', $container);
     }
 }
