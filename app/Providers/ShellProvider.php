@@ -19,7 +19,7 @@ class ShellProvider extends AbstractServiceProvider
                 $config = new Configuration([
                     'updateCheck' => 'never'
                 ]);
-                return new Psysh($config);
+                return new Shell($config);
             });
     }
 }
