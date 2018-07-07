@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace App\Providers;
 
@@ -20,7 +20,7 @@ class DoctrineProvider extends AbstractServiceProvider
                  $paths = ['app/Doctrine/Entities'];
                  $isDevMode = false;
                  $dbParams = array(
-                     'driver' => getenv('DB_TYPE', 'pdo_sqlite'),
+                     'driver' => getenv('DB_TYPE'),
                      'path' => getenv('DB_PATH'),
                  );
                  $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
