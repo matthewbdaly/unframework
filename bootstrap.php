@@ -34,7 +34,7 @@ $whoops = new \Whoops\Run;
 if ($environment !== 'production') {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 } else {
-    $handler = $container->get('App\Exceptions\LogHandler');
+    $handler = $container->get('App\Contracts\Exceptions\Handler');
     $whoops->pushHandler(new \Whoops\Handler\CallbackHandler($handler));
 }
 $whoops->register();
