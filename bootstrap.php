@@ -39,7 +39,6 @@ if ($environment !== 'production') {
 }
 $whoops->register();
 
-
 $router = new League\Route\RouteCollection($container);
 
 require_once 'routes.php';
