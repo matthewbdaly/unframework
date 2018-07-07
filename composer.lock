@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a50b464964a27a4145a19a76bcf78da",
+    "content-hash": "e62b61d8257233580d9e4fcf071adb02",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -913,6 +913,45 @@
                 "route"
             ],
             "time": "2017-03-22T09:09:41+00:00"
+        },
+        {
+            "name": "matthewbdaly/proper",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthewbdaly/proper.git",
+                "reference": "89cb694e5ae1e71c53096580597d5ecc89c24e49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthewbdaly/proper/zipball/89cb694e5ae1e71c53096580597d5ecc89c24e49",
+                "reference": "89cb694e5ae1e71c53096580597d5ecc89c24e49",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^4.0",
+                "phpstan/phpstan": "^0.9.2",
+                "psy/psysh": "^0.8.11",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Matthewbdaly\\Proper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew Daly",
+                    "email": "matthewbdaly@gmail.com"
+                }
+            ],
+            "description": "Proper string and collection implementation for PHP",
+            "time": "2018-07-07T15:28:01+00:00"
         },
         {
             "name": "monolog/monolog",
