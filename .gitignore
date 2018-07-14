@@ -3,3 +3,4 @@ vendor/
 logs/
 db.sqlite
 .env
+composer.lock
