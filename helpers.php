@@ -7,3 +7,10 @@ if (!function_exists('collect')) {
         return Collection::make($items);
     }
 }
+
+if (!function_exists('dd')) {
+    function dd($val) {
+        var_dump($val);
+        die();
+    }
+}
