@@ -16,7 +16,7 @@ class HandlerProvider extends AbstractServiceProvider
         // Register items
         $this->getContainer()
             ->add('App\Contracts\Exceptions\Handler', function () {
-            return new LogHandler($this->getContainer()->get('Psr\Log\LoggerInterface'));
-        });
+                return new LogHandler($this->getContainer()->get('Psr\Log\LoggerInterface'));
+            });
     }
 }
