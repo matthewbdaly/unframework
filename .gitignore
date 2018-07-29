@@ -4,3 +4,4 @@ logs/
 db.sqlite
 .env
 composer.lock
+.idea/
