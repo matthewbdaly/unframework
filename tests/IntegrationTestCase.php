@@ -2,18 +2,18 @@
 
 namespace Tests;
 
-use Zend\Diactoros\Request;
+use Zend\Diactoros\ServerRequest;
 
 class IntegrationTestCase extends TestCase
 {
     public function makeRequest(string $uri, string $method = 'GET')
     {
-        $request = new Request($uri, $method);
+        $request = new ServerRequest([], [], $uri, $method);
         $this->response = $this->app->handle($request);
         return $this;
     }
 
-    public function assertResponseCode(int $code, $message = '')
+    public function assertStatusCode(int $code, $message = '')
     {
         if (!isset($this->response)) {
             throw new \Exception('No response has been received');
