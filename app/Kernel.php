@@ -9,6 +9,21 @@ use Psr\Http\Message\RequestInterface;
 
 class Kernel
 {
+    /**
+     * @var Container
+     */
+    private $container;
+
+    /**
+     * @var Router
+     */
+    private $router;
+
+    /**
+     * Bootstrap the application
+     *
+     * @return Kernel
+     */
     public function bootstrap()
     {
         $this->setupContainer();
@@ -17,6 +32,12 @@ class Kernel
         return $this;
     }
 
+    /**
+     * Handle a request
+     *
+     * @param RequestInterface $request HTTP request.
+     * @return void
+     */
     public function handle(RequestInterface $request)
     {
         try {
@@ -31,7 +52,7 @@ class Kernel
         $this->container->get('emitter')->emit($response);
     }
 
-    public function setupContainer()
+    private function setupContainer()
     {
         $container = new Container;
         $container->delegate(
