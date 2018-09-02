@@ -7,6 +7,9 @@ use League\Container\Container;
 use League\Container\ReflectionContainer;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * Application kernel
+ */
 class Kernel
 {
     /**
@@ -18,6 +21,23 @@ class Kernel
      * @var Router
      */
     private $router;
+
+    /**
+     * @var Providers
+     */
+    private $providers = [
+        'App\Providers\ContainerProvider',
+        'App\Providers\CacheProvider',
+        'App\Providers\DoctrineProvider',
+        'App\Providers\EventProvider',
+        'App\Providers\FlysystemProvider',
+        'App\Providers\HandlerProvider',
+        'App\Providers\LoggerProvider',
+        'App\Providers\RouterProvider',
+        'App\Providers\SessionProvider',
+        'App\Providers\ShellProvider',
+        'App\Providers\TwigProvider',
+    ];
 
     /**
      * Bootstrap the application
@@ -58,17 +78,9 @@ class Kernel
             new ReflectionContainer
         );
 
-        $container->addServiceProvider('App\Providers\ContainerProvider');
-        $container->addServiceProvider('App\Providers\CacheProvider');
-        $container->addServiceProvider('App\Providers\DoctrineProvider');
-        $container->addServiceProvider('App\Providers\EventProvider');
-        $container->addServiceProvider('App\Providers\FlysystemProvider');
-        $container->addServiceProvider('App\Providers\HandlerProvider');
-        $container->addServiceProvider('App\Providers\LoggerProvider');
-        $container->addServiceProvider('App\Providers\RouterProvider');
-        $container->addServiceProvider('App\Providers\SessionProvider');
-        $container->addServiceProvider('App\Providers\ShellProvider');
-        $container->addServiceProvider('App\Providers\TwigProvider');
+        foreach ($this->providers as $provider) {
+            $container->addServiceProvider($provider);
+        }
         $container->share('emitter', \Zend\Diactoros\Response\SapiEmitter::class);
         $container->share('response', \Zend\Diactoros\Response::class);
         $this->container = $container;
