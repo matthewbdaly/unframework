@@ -8,7 +8,7 @@ use App\Exceptions\LogHandler;
 
 class LogHandlerTest extends TestCase
 {
-    public function testHandle()
+    public function testHandle(): void
     {
         $logger = m::mock('Psr\Log\LoggerInterface');
         $logger->shouldReceive('error')->once();

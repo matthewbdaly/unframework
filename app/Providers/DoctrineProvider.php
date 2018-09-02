@@ -12,7 +12,7 @@ class DoctrineProvider extends AbstractServiceProvider
         'Doctrine\ORM\EntityManager',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

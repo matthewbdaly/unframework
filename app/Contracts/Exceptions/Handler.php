@@ -8,5 +8,5 @@ use Whoops\RunInterface;
 
 interface Handler
 {
-    public function __invoke(Throwable $exception, Inspector $inspector, RunInterface $run);
+    public function __invoke(Throwable $exception, Inspector $inspector, RunInterface $run): void;
 }

@@ -6,14 +6,14 @@ use Zend\Diactoros\ServerRequest;
 
 class IntegrationTestCase extends TestCase
 {
-    public function makeRequest(string $uri, string $method = 'GET')
+    public function makeRequest(string $uri, string $method = 'GET'): IntegrationTestCase
     {
         $request = new ServerRequest([], [], $uri, $method);
         $this->response = $this->app->handle($request);
         return $this;
     }
 
-    public function assertStatusCode(int $code, $message = '')
+    public function assertStatusCode(int $code, $message = ''): void
     {
         if (!isset($this->response)) {
             throw new \Exception('No response has been received');

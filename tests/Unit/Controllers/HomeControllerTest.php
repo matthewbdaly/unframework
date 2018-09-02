@@ -8,7 +8,7 @@ use App\Controllers\HomeController;
 
 class HomeControllerTest extends TestCase
 {
-    public function testIndex()
+    public function testIndex(): void
     {
         $renderer = m::mock(new \stdClass);
         $renderer->shouldReceive('render')->once();

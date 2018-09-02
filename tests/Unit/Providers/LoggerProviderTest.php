@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class LoggerProviderTest extends TestCase
 {
-    public function testCreateLogger()
+    public function testCreateLogger(): void
     {
         $logger = $this->container->get('Psr\Log\LoggerInterface');
         $this->assertInstanceOf('Psr\Log\LoggerInterface', $logger);

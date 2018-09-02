@@ -8,7 +8,7 @@ use App\Controllers\AuthController;
 
 class AuthControllerTest extends TestCase
 {
-    public function testShow()
+    public function testShow(): void
     {
         $renderer = m::mock(new \stdClass);
         $renderer->shouldReceive('render')->once();

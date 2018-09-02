@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class CacheProviderTest extends TestCase
 {
-    public function testCreateContainer()
+    public function testCreateContainer(): void
     {
         $container = $this->container->get('Psr\Cache\CacheItemPoolInterface');
         $this->assertInstanceOf('Psr\Cache\CacheItemPoolInterface', $container);

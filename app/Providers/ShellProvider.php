@@ -12,7 +12,7 @@ class ShellProvider extends AbstractServiceProvider
         'Psy\Shell',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

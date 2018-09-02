@@ -15,7 +15,7 @@ class HomeController
         $this->twig = $twig;
     }
 
-    public function index(ServerRequestInterface $request, ResponseInterface $response)
+    public function index(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $tpl = $this->twig->load('index.html');
         $response->getBody()->write($tpl->render());

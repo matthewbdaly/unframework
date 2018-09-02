@@ -11,7 +11,7 @@ class ContainerProvider extends AbstractServiceProvider
         'League\Container\ContainerInterface',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

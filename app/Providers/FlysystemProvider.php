@@ -12,7 +12,7 @@ class FlysystemProvider extends AbstractServiceProvider
         'League\Flysystem\Filesystem',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

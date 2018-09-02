@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class TwigProviderTest extends TestCase
 {
-    public function testCreateTwig()
+    public function testCreateTwig(): void
     {
         $emitter = $this->container->get('Twig_Environment');
         $this->assertInstanceOf('Twig_Environment', $emitter);

@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class ContainerProviderTest extends TestCase
 {
-    public function testCreateContainer()
+    public function testCreateContainer(): void
     {
         $container = $this->container->get('League\Container\ContainerInterface');
         $this->assertInstanceOf('League\Container\ContainerInterface', $container);

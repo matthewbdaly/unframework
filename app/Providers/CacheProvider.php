@@ -12,7 +12,7 @@ class CacheProvider extends AbstractServiceProvider
         'Psr\Cache\CacheItemPoolInterface',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

@@ -44,7 +44,7 @@ class Kernel
      *
      * @return Kernel
      */
-    public function bootstrap()
+    public function bootstrap(): Kernel
     {
         $this->setupContainer();
         $this->setupRoutes();
@@ -58,7 +58,7 @@ class Kernel
      * @param RequestInterface $request HTTP request.
      * @return void
      */
-    public function handle(RequestInterface $request)
+    public function handle(RequestInterface $request): \Psr\Http\Message\ResponseInterface
     {
         try {
             $response = $this->router->dispatch($request, $this->container->get('response'));
@@ -71,7 +71,7 @@ class Kernel
         return $response;
     }
 
-    private function setupContainer()
+    private function setupContainer(): void
     {
         $container = new Container;
         $container->delegate(
@@ -86,7 +86,7 @@ class Kernel
         $this->container = $container;
     }
 
-    private function setErrorHandler()
+    private function setErrorHandler(): void
     {
         error_reporting(E_ALL);
         $environment = getenv('APP_ENV');
@@ -101,14 +101,14 @@ class Kernel
         $whoops->register();
     }
 
-    private function setupRoutes()
+    private function setupRoutes(): void
     {
         $router = $this->container->get('League\Route\RouteCollection');
         require_once BASE_DIR.'/routes.php';
         $this->router = $router;
     }
 
-    public function getContainer()
+    public function getContainer(): Container
     {
         return $this->container;
     }

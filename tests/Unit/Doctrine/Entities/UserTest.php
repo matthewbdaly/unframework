@@ -8,7 +8,7 @@ use App\Doctrine\Entities\User;
 
 class UserTest extends TestCase
 {
-    public function testSetAndGet()
+    public function testSetAndGet(): void
     {
         $user = new User;
         $this->assertEquals('', $user->getName());

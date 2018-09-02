@@ -9,7 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Server extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('server')
             ->addOption('port', 'p', InputOption::VALUE_OPTIONAL, 'Which port should the server run on?')
@@ -17,7 +17,7 @@ class Server extends Command
             ->setHelp('This command runs the development server');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         if (!$port = $input->getOption('port')) {
             $port = 8000;

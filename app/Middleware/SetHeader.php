@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class SetHeader
 {
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         $response = $next($request, $response);
         return $response->withHeader('X-TEST', 'Testing');

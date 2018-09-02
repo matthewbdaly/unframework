@@ -8,7 +8,7 @@ use App\Middleware\SetHeader;
 
 class SetHeaderTest extends TestCase
 {
-    public function testSetHeader()
+    public function testSetHeader(): void
     {
         $request = m::mock('Psr\Http\Message\ServerRequestInterface');
         $response = m::mock('Psr\Http\Message\ResponseInterface');

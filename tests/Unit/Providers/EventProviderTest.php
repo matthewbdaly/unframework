@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class EventProviderTest extends TestCase
 {
-    public function testCreateEventEmitter()
+    public function testCreateEventEmitter(): void
     {
         $emitter = $this->container->get('League\Event\EmitterInterface');
         $this->assertInstanceOf('League\Event\EmitterInterface', $emitter);

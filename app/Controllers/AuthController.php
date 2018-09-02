@@ -15,7 +15,7 @@ class AuthController
         $this->twig = $twig;
     }
 
-    public function show(ServerRequestInterface $request, ResponseInterface $response)
+    public function show(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $tpl = $this->twig->load('login.html');
         $response->getBody()->write($tpl->render());

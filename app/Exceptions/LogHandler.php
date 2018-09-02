@@ -15,7 +15,7 @@ class LogHandler implements Handler
         $this->logger = $logger;
     }
 
-    public function __invoke(Throwable $exception, Inspector $inspector, RunInterface $run)
+    public function __invoke(Throwable $exception, Inspector $inspector, RunInterface $run): void
     {
         $this->logger->error($exception->getMessage(), $exception->getTrace());
     }

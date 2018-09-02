@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class HandlerProviderTest extends TestCase
 {
-    public function testCreateHandler()
+    public function testCreateHandler(): void
     {
         $handler = $this->container->get('App\Contracts\Exceptions\Handler');
         $this->assertInstanceOf('App\Contracts\Exceptions\Handler', $handler);

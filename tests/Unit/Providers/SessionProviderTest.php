@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class SessionProviderTest extends TestCase
 {
-    public function testCreateSession()
+    public function testCreateSession(): void
     {
         $session = $this->container->get('Symfony\Component\HttpFoundation\Session\SessionInterface');
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\SessionInterface', $session);

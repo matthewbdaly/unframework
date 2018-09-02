@@ -10,7 +10,7 @@ class TwigProvider extends AbstractServiceProvider
         'Twig_Environment',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

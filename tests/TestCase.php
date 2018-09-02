@@ -8,7 +8,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
 {
     use MockeryPHPUnitIntegration;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!defined('BASE_DIR')) {
             define('BASE_DIR', __DIR__.'/../');

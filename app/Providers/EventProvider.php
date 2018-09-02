@@ -11,7 +11,7 @@ class EventProvider extends AbstractServiceProvider
         'League\Event\EmitterInterface',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

@@ -22,14 +22,14 @@ class Shell extends Command
         $this->shell = $shell;
     }
     
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('shell')
              ->setDescription('Runs an interactive shell')
              ->setHelp('This command runs an interactive shell');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $container = $this->container;
 

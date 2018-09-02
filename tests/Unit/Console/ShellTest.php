@@ -9,7 +9,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class ShellTest extends TestCase
 {
-    public function testCreateShell()
+    public function testCreateShell(): void
     {
         $shell = m::mock('Psy\Shell');
         $shell->shouldReceive('run')->once();

@@ -11,7 +11,7 @@ class HandlerProvider extends AbstractServiceProvider
         'App\Contracts\Exceptions\Handler',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

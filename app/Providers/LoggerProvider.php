@@ -12,7 +12,7 @@ class LoggerProvider extends AbstractServiceProvider
         'Psr\Log\LoggerInterface',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()

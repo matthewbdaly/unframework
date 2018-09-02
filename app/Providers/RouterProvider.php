@@ -11,7 +11,7 @@ class RouterProvider extends AbstractServiceProvider
         'League\Route\RouteCollection',
     ];
 
-    public function register()
+    public function register(): void
     {
         // Register items
         $this->getContainer()
