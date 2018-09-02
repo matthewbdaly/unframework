@@ -11,8 +11,8 @@ class Kernel
 {
     public function bootstrap()
     {
-        $this->container = $this->getContainer();
-        $this->router = $this->getRoutes();
+        $this->setupContainer();
+        $this->setupRoutes();
         $this->setErrorHandler();
         return $this;
     }
@@ -31,7 +31,7 @@ class Kernel
         $this->container->get('emitter')->emit($response);
     }
 
-    public function getContainer()
+    public function setupContainer()
     {
         $container = new Container;
         $container->delegate(
@@ -51,7 +51,7 @@ class Kernel
         $container->addServiceProvider('App\Providers\TwigProvider');
         $container->share('emitter', \Zend\Diactoros\Response\SapiEmitter::class);
         $container->share('response', \Zend\Diactoros\Response::class);
-        return $container;
+        $this->container = $container;
     }
 
     private function setErrorHandler()
@@ -69,10 +69,15 @@ class Kernel
         $whoops->register();
     }
 
-    private function getRoutes()
+    private function setupRoutes()
     {
         $router = $this->container->get('League\Route\RouteCollection');
         require_once BASE_DIR.'/routes.php';
-        return $router;
+        $this->router = $router;
+    }
+
+    public function getContainer()
+    {
+        return $this->container;
     }
 }
