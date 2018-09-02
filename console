@@ -5,8 +5,13 @@ require_once __DIR__.'/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
+if (!defined('BASE_DIR')) {
+    define('BASE_DIR', __DIR__);
+}
+
 $app = new Application();
 $kernel = new App\Kernel;
+$kernel->bootstrap();
 $container = $kernel->getContainer();
 $app->add($container->get('App\Console\Shell'));
 $app->add($container->get('App\Console\Server'));

@@ -16,5 +16,8 @@ $request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
     $_COOKIE,
     $_FILES
 );
-(new App\Kernel)->bootstrap()
+ 
+$app = new App\Kernel;
+$response = $app->bootstrap()
     ->handle($request);
+$app->getContainer()->get('emitter')->emit($response);

@@ -48,8 +48,7 @@ class Kernel
             $response = $this->container->get('response');
             $response->getBody()->write($tpl->render());
         }
-
-        $this->container->get('emitter')->emit($response);
+        return $response;
     }
 
     private function setupContainer()
