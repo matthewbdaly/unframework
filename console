@@ -7,4 +7,5 @@ use Symfony\Component\Console\Application;
 
 $app = new Application();
 $app->add($container->get('App\Console\Shell'));
+$app->add($container->get('App\Console\Server'));
 $app->run();
