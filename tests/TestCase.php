@@ -10,7 +10,11 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     public function setUp()
     {
-        require __DIR__.'/../bootstrap.php';
-        $this->container = $container;
+        if (!defined('BASE_DIR')) {
+            define('BASE_DIR', __DIR__.'/../');
+        }
+        $this->app = new \App\Kernel;
+        $this->app->bootstrap();
+        $this->container = $this->app->getContainer();
     }
 }
