@@ -1,11 +1,13 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__.'/bootstrap.php';
+require_once __DIR__.'/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
 $app = new Application();
+$kernel = new App\Kernel;
+$container = $kernel->getContainer();
 $app->add($container->get('App\Console\Shell'));
 $app->add($container->get('App\Console\Server'));
 $app->run();
