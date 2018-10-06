@@ -17,7 +17,7 @@ class AuthControllerTest extends TestCase
         $request = m::mock('Psr\Http\Message\ServerRequestInterface');
         $response = m::mock('Psr\Http\Message\ResponseInterface');
         $response->shouldReceive('getBody->write')->once();
-        $controller = new AuthController($twig);
-        $controller->show($request, $response);
+        $controller = new AuthController($twig, $response);
+        $controller->show($request);
     }
 }

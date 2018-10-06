@@ -17,7 +17,7 @@ class HomeControllerTest extends TestCase
         $request = m::mock('Psr\Http\Message\ServerRequestInterface');
         $response = m::mock('Psr\Http\Message\ResponseInterface');
         $response->shouldReceive('getBody->write')->once();
-        $controller = new HomeController($twig);
-        $controller->index($request, $response);
+        $controller = new HomeController($twig, $response);
+        $controller->index($request);
     }
 }

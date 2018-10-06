@@ -10,15 +10,18 @@ class HomeController
 {
     protected $twig;
 
-    public function __construct(Twig_Environment $twig)
+    protected $response;
+
+    public function __construct(Twig_Environment $twig, ResponseInterface $response)
     {
         $this->twig = $twig;
+        $this->response = $response;
     }
 
-    public function index(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function index(ServerRequestInterface $request): ResponseInterface
     {
         $tpl = $this->twig->load('index.html');
-        $response->getBody()->write($tpl->render());
-        return $response;
+        $this->response->getBody()->write($tpl->render());
+        return $this->response;
     }
 }
