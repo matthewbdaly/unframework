@@ -16,9 +16,9 @@ class SetHeaderTest extends TestCase
             ->with('X-TEST', 'Testing')
             ->once()
             ->andReturn($response);
+        $handler = m::mock('Psr\Http\Server\RequestHandlerInterface');
+        $handler->shouldReceive('handle')->with($request)->once()->andReturn($response);
         $middleware = new SetHeader;
-        $middleware($request, $response, function () use ($response) {
-            return $response;
-        });
+        $middleware->process($request, $handler);
     }
 }
