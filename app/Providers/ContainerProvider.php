@@ -8,14 +8,14 @@ use League\Container\Container;
 class ContainerProvider extends AbstractServiceProvider
 {
     protected $provides = [
-        'League\Container\ContainerInterface',
+        'Psr\Container\ContainerInterface',
     ];
 
     public function register(): void
     {
         // Register items
         $this->getContainer()
-             ->add('League\Container\ContainerInterface', function () {
+             ->add('Psr\Container\ContainerInterface', function () {
                  return $this->getContainer();
              });
     }
