@@ -6,9 +6,19 @@ use Zend\Diactoros\ServerRequest;
 
 class IntegrationTestCase extends TestCase
 {
-    public function makeRequest(string $uri, string $method = 'GET', array $params = [], array $body = []): IntegrationTestCase
+    public function makeRequest(string $uri, string $method = 'GET', $server = [], $files = [], $body = 'php://input', $headers = [], $cookies = [], $queryParams = [], $parsedBody = null): IntegrationTestCase
     {
-        $request = new ServerRequest([], [], $uri, $method, 'php://input', [], [], $params, $body);
+        $request = new ServerRequest(
+            $server,
+            $files,
+            $uri,
+            $method,
+            $body,
+            $headers,
+            $cookies,
+            $queryParams,
+            $parsedBody
+        );
         $this->response = $this->app->handle($request);
         return $this;
     }
