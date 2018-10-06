@@ -8,7 +8,7 @@ class RouterProviderTest extends TestCase
 {
     public function testCreateFlysystem(): void
     {
-        $router = $this->container->get('League\Route\RouteCollection');
-        $this->assertInstanceOf('League\Route\RouteCollection', $router);
+        $router = $this->container->get('League\Route\Router');
+        $this->assertInstanceOf('League\Route\Router', $router);
     }
 }

@@ -3,20 +3,20 @@
 namespace App\Providers;
 
 use League\Container\ServiceProvider\AbstractServiceProvider;
-use League\Route\RouteCollection;
+use League\Route\Router;
 
 class RouterProvider extends AbstractServiceProvider
 {
     protected $provides = [
-        'League\Route\RouteCollection',
+        'League\Route\Router',
     ];
 
     public function register(): void
     {
         // Register items
         $this->getContainer()
-            ->add('League\Route\RouteCollection', function () {
-                return new RouteCollection($this->getContainer());
+            ->add('League\Route\Router', function () {
+                return new Router;
             });
     }
 }

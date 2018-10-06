@@ -5,6 +5,7 @@ namespace App;
 use Zend\Diactoros\ServerRequestFactory;
 use League\Container\Container;
 use League\Container\ReflectionContainer;
+use League\Route\Strategy\ApplicationStrategy;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -103,7 +104,9 @@ class Kernel
 
     private function setupRoutes(): void
     {
-        $router = $this->container->get('League\Route\RouteCollection');
+        $strategy = (new ApplicationStrategy)->setContainer($this->container);
+        $router = $this->container->get('League\Route\Router')
+            ->setStrategy($strategy);
         require_once BASE_DIR.'/routes.php';
         $this->router = $router;
     }
