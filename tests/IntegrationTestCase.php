@@ -30,4 +30,10 @@ class IntegrationTestCase extends TestCase
         }
         self::assertThat($this->response->getStatusCode() == $code, self::isTrue(), $message);
     }
+
+    public function tearDown(): void
+    {
+        $this->response = null;
+        parent::tearDown();
+    }
 }

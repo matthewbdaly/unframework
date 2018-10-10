@@ -17,4 +17,10 @@ class TestCase extends \PHPUnit\Framework\TestCase
         $this->app->bootstrap();
         $this->container = $this->app->getContainer();
     }
+
+    public function tearDown(): void
+    {
+        $this->app = null;
+        $this->container = null;
+    }
 }
