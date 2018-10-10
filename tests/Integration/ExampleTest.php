@@ -17,4 +17,10 @@ class ExampleTest extends IntegrationTestCase
         $this->makeRequest('/login')
             ->assertStatusCode(200);
     }
+
+    public function test404(): void
+    {
+        $this->makeRequest('/foo')
+            ->assertStatusCode(404);
+    }
 }

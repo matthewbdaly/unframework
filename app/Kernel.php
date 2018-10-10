@@ -66,7 +66,7 @@ class Kernel
         } catch (\League\Route\Http\Exception\NotFoundException $e) {
             $twig = $this->container->get('Twig_Environment');
             $tpl = $twig->load('404.html');
-            $response = $this->container->get('response');
+            $response = $this->container->get('response')->withStatus(404);
             $response->getBody()->write($tpl->render());
         }
         return $response;
