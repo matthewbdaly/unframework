@@ -14,6 +14,7 @@ class ExampleTest extends IntegrationTestCase
 
     public function testLogin(): void
     {
+        $this->markTestSkipped();
         $this->makeRequest('/login')
             ->assertStatusCode(200);
     }
