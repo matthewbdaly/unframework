@@ -7,11 +7,12 @@ use League\Container\Container;
 use League\Container\ReflectionContainer;
 use League\Route\Strategy\ApplicationStrategy;
 use Psr\Http\Message\RequestInterface;
+use App\Contracts\KernelContract;
 
 /**
  * Application kernel
  */
-class Kernel
+class Kernel implements KernelContract
 {
     /**
      * @var Container
@@ -45,7 +46,7 @@ class Kernel
      *
      * @return Kernel
      */
-    public function bootstrap(): Kernel
+    public function bootstrap(): KernelContract
     {
         $this->setupContainer();
         $this->setupRoutes();
