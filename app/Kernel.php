@@ -39,6 +39,7 @@ class Kernel implements KernelContract
         'App\Providers\SessionProvider',
         'App\Providers\ShellProvider',
         'App\Providers\TwigProvider',
+        'App\Providers\ViewProvider',
     ];
 
     /**

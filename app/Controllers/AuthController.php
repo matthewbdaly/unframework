@@ -4,24 +4,22 @@ namespace App\Controllers;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Twig_Environment;
+use App\Contracts\Renderer;
 
 class AuthController
 {
-    protected $twig;
-
     protected $response;
 
-    public function __construct(Twig_Environment $twig, ResponseInterface $response)
+    protected $view;
+
+    public function __construct(ResponseInterface $response, Renderer $view)
     {
-        $this->twig = $twig;
         $this->response = $response;
+        $this->view = $view;
     }
 
     public function show(ServerRequestInterface $request): ResponseInterface
     {
-        $tpl = $this->twig->load('login.html');
-        $this->response->getBody()->write($tpl->render());
-        return $this->response;
+        return $this->view->render($this->response, 'login.html', []);
     }
 }

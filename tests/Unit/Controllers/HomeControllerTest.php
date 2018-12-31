@@ -10,14 +10,11 @@ class HomeControllerTest extends TestCase
 {
     public function testIndex(): void
     {
-        $renderer = m::mock(new \stdClass);
-        $renderer->shouldReceive('render')->once();
-        $twig = m::mock('Twig_Environment');
-        $twig->shouldReceive('load')->with('index.html')->once()->andReturn($renderer);
         $request = m::mock('Psr\Http\Message\ServerRequestInterface');
         $response = m::mock('Psr\Http\Message\ResponseInterface');
-        $response->shouldReceive('getBody->write')->once();
-        $controller = new HomeController($twig, $response);
+        $renderer = m::mock('App\Contracts\Renderer');
+        $renderer->shouldReceive('render')->with($response, 'index.html', [])->once();
+        $controller = new HomeController($response, $renderer);
         $controller->index($request);
     }
 }
