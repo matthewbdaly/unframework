@@ -84,7 +84,7 @@ class Kernel implements KernelContract
         foreach ($this->providers as $provider) {
             $container->addServiceProvider($provider);
         }
-        $container->share('emitter', \Zend\Diactoros\Response\SapiEmitter::class);
+        $container->share('emitter', \Zend\HttpHandlerRunner\Emitter\SapiEmitter::class);
         $container->share('response', \Zend\Diactoros\Response::class);
         $container->share('Psr\Http\Message\ResponseInterface', \Zend\Diactoros\Response::class);
         $this->container = $container;
