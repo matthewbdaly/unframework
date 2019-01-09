@@ -4,6 +4,9 @@ namespace Tests\Integration;
 
 use Tests\IntegrationTestCase;
 
+/**
+ * @runTestsInSeparateProcesses
+ */
 class ExampleTest extends IntegrationTestCase
 {
     public function testHome(): void
@@ -14,7 +17,6 @@ class ExampleTest extends IntegrationTestCase
 
     public function testLogin(): void
     {
-        $this->markTestSkipped();
         $this->makeRequest('/login')
             ->assertStatusCode(200);
     }
