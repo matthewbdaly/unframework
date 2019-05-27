@@ -8,7 +8,7 @@ class TwigProviderTest extends TestCase
 {
     public function testCreateTwig(): void
     {
-        $emitter = $this->container->get('Twig_Environment');
-        $this->assertInstanceOf('Twig_Environment', $emitter);
+        $emitter = $this->container->get('Twig\Environment');
+        $this->assertInstanceOf('Twig\Environment', $emitter);
     }
 }

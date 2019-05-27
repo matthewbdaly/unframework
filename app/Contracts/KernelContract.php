@@ -10,13 +10,13 @@ interface KernelContract
 {
     /**
      * Bootstrap the application
-     * 
+     *
      */
     public function bootstrap(): KernelContract;
 
     /**
      * Handle a request
-     * 
+     *
      */
     public function handle(RequestInterface $request): ResponseInterface;
 

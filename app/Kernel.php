@@ -66,7 +66,7 @@ class Kernel implements KernelContract
         try {
             $response = $this->router->dispatch($request, $this->container->get('response'));
         } catch (\League\Route\Http\Exception\NotFoundException $e) {
-            $twig = $this->container->get('Twig_Environment');
+            $twig = $this->container->get('Twig\Environment');
             $tpl = $twig->load('404.html');
             $response = $this->container->get('response')->withStatus(404);
             $response->getBody()->write($tpl->render());

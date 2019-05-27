@@ -16,7 +16,7 @@ class ViewProvider extends AbstractServiceProvider
         // Register items
         $this->getContainer()
              ->add('App\Contracts\Renderer', function () {
-                 $twig = $this->getContainer()->get('Twig_Environment');
+                 $twig = $this->getContainer()->get('Twig\Environment');
                  return new TwigRenderer($twig);
              });
     }

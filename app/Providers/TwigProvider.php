@@ -3,20 +3,22 @@
 namespace App\Providers;
 
 use League\Container\ServiceProvider\AbstractServiceProvider;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class TwigProvider extends AbstractServiceProvider
 {
     protected $provides = [
-        'Twig_Environment',
+        'Twig\Environment',
     ];
 
     public function register(): void
     {
         // Register items
         $this->getContainer()
-             ->add('Twig_Environment', function () {
-                 $loader = new \Twig_Loader_Filesystem(BASE_DIR.'/app/views');
-                 $twig = new \Twig_Environment($loader, array(
+             ->add('Twig\Environment', function () {
+                 $loader = new FilesystemLoader(BASE_DIR.'/app/views');
+                 $twig = new Environment($loader, array(
                      'cache' => BASE_DIR.'/cache/views',
                  ));
                  return $twig;
