@@ -31,7 +31,9 @@ class Shell extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        $container = $this->container;
+        $this->shell->setScopeVariables([
+            'container' => $this->container
+        ]);
 
         $this->shell->run();
     }
