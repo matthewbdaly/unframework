@@ -13,6 +13,7 @@ class ShellTest extends TestCase
     {
         $shell = m::mock('Psy\Shell');
         $shell->shouldReceive('run')->once();
+        $shell->shouldReceive('setScopeVariables')->once();
         $this->container->add('Psy\Shell', $shell);
         $cmd = $this->container->get('App\Console\Shell');
         $tester = new CommandTester($cmd);
