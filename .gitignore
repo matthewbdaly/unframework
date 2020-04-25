@@ -6,3 +6,4 @@ db.sqlite
 composer.lock
 .idea/
 infection-log.txt
+.phpunit.result.cache
