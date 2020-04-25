@@ -12,6 +12,6 @@ class CacheProviderTest extends TestCase
     {
         $container = $this->container->get('Psr\Cache\CacheItemPoolInterface');
         $this->assertInstanceOf('Psr\Cache\CacheItemPoolInterface', $container);
-        $this->assertInstanceOf('Stash\Pool', $container);
+        $this->assertInstanceOf('Cache\Adapter\Doctrine\DoctrineCachePool', $container);
     }
 }
