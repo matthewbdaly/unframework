@@ -37,12 +37,13 @@ final class Shell extends Command
              ->setHelp('This command runs an interactive shell');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->shell->setScopeVariables([
             'container' => $this->container
         ]);
 
         $this->shell->run();
+        return 1;
     }
 }
