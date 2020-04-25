@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Unit\Exceptions;
 
@@ -12,7 +14,7 @@ class LogHandlerTest extends TestCase
     {
         $logger = m::mock('Psr\Log\LoggerInterface');
         $logger->shouldReceive('error')->once();
-        $exception = new \Exception;
+        $exception = new \Exception();
         $inspector = m::mock('Whoops\Exception\Inspector');
         $run = m::mock('Whoops\RunInterface');
         $handler = new LogHandler($logger);

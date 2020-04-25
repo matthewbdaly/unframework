@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Unit\Middleware;
 
@@ -18,7 +20,7 @@ class SetHeaderTest extends TestCase
             ->andReturn($response);
         $handler = m::mock('Psr\Http\Server\RequestHandlerInterface');
         $handler->shouldReceive('handle')->with($request)->once()->andReturn($response);
-        $middleware = new SetHeader;
+        $middleware = new SetHeader();
         $middleware->process($request, $handler);
     }
 }

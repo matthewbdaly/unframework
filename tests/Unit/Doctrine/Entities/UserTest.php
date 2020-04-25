@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Unit\Doctrine\Entities;
 
@@ -10,7 +12,7 @@ class UserTest extends TestCase
 {
     public function testSetAndGet(): void
     {
-        $user = new User;
+        $user = new User();
         $this->assertEquals('', $user->getName());
         $user->setName('Bob');
         $this->assertEquals('Bob', $user->getName());

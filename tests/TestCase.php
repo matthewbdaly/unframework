@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests;
 
@@ -11,9 +13,9 @@ class TestCase extends \PHPUnit\Framework\TestCase
     public function setUp(): void
     {
         if (!defined('BASE_DIR')) {
-            define('BASE_DIR', __DIR__.'/../');
+            define('BASE_DIR', __DIR__ . '/../');
         }
-        $this->app = new \App\Kernel;
+        $this->app = new \App\Kernel();
         $this->app->bootstrap();
         $this->container = $this->app->getContainer();
     }
