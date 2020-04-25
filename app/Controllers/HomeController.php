@@ -8,11 +8,17 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use App\Contracts\Renderer;
 
-class HomeController
+final class HomeController
 {
-    protected $response;
+    /**
+     * @var ResponseInterface
+     */
+    private $response;
 
-    protected $view;
+    /**
+     * @var Renderer
+     */
+    private $view;
 
     public function __construct(ResponseInterface $response, Renderer $view)
     {

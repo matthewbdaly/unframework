@@ -14,7 +14,7 @@ use App\Contracts\KernelContract;
 /**
  * Application kernel
  */
-class Kernel implements KernelContract
+final class Kernel implements KernelContract
 {
     /**
      * @var Container
@@ -22,12 +22,12 @@ class Kernel implements KernelContract
     private $container;
 
     /**
-     * @var Router
+     * @var \League\Route\Router
      */
     private $router;
 
     /**
-     * @var Providers
+     * @var array
      */
     private $providers = [
         'App\Providers\ContainerProvider',
@@ -46,8 +46,6 @@ class Kernel implements KernelContract
 
     /**
      * Bootstrap the application
-     *
-     * @return Kernel
      */
     public function bootstrap(): KernelContract
     {
@@ -59,9 +57,6 @@ class Kernel implements KernelContract
 
     /**
      * Handle a request
-     *
-     * @param RequestInterface $request HTTP request.
-     * @return void
      */
     public function handle(RequestInterface $request): \Psr\Http\Message\ResponseInterface
     {

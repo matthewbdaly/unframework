@@ -11,12 +11,18 @@ use Psr\Container\ContainerInterface;
 use Psy\Shell as Psysh;
 use Psy\Configuration;
 
-class Shell extends Command
+final class Shell extends Command
 {
-    protected $container;
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
 
-    protected $shell;
-    
+    /**
+     * @var Psysh
+     */
+    private $shell;
+
     public function __construct(ContainerInterface $container, Psysh $shell)
     {
         parent::__construct();
