@@ -4,13 +4,16 @@ namespace App\Renderers;
 
 use App\Contracts\Renderer;
 use Psr\Http\Message\ResponseInterface;
-use Twig_Environment;
+use Twig\Environment;
 
 final class TwigRenderer implements Renderer
 {
-    protected $twig;
+    /**
+     * @var Environment
+     */
+    private $twig;
 
-    public function __construct(Twig_Environment $twig)
+    public function __construct(Environment $twig)
     {
         $this->twig = $twig;
     }

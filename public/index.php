@@ -8,7 +8,7 @@ if (!defined('BASE_DIR')) {
 
 error_reporting(E_ALL);
 
-$dotenv = new Dotenv\Dotenv(BASE_DIR);
+$dotenv = Dotenv\Dotenv::createImmutable(BASE_DIR);
 $dotenv->load();
 if (getenv('APP_ENV') == 'development') {
     ini_set('display_errors', '1');
