@@ -8,7 +8,7 @@ use League\Container\ServiceProvider\AbstractServiceProvider;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class TwigProvider extends AbstractServiceProvider
+final class TwigProvider extends AbstractServiceProvider
 {
     protected $provides = [
         'Twig\Environment',

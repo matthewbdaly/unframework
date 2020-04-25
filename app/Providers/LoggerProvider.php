@@ -8,7 +8,7 @@ use League\Container\ServiceProvider\AbstractServiceProvider;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
-class LoggerProvider extends AbstractServiceProvider
+final class LoggerProvider extends AbstractServiceProvider
 {
     protected $provides = [
         'Psr\Log\LoggerInterface',

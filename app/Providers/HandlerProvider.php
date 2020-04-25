@@ -7,7 +7,7 @@ namespace App\Providers;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use App\Exceptions\LogHandler;
 
-class HandlerProvider extends AbstractServiceProvider
+final class HandlerProvider extends AbstractServiceProvider
 {
     protected $provides = [
         'App\Contracts\Exceptions\Handler',

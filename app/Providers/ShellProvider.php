@@ -8,7 +8,7 @@ use League\Container\ServiceProvider\AbstractServiceProvider;
 use Psy\Shell;
 use Psy\Configuration;
 
-class ShellProvider extends AbstractServiceProvider
+final class ShellProvider extends AbstractServiceProvider
 {
     protected $provides = [
         'Psy\Shell',

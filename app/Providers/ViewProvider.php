@@ -7,7 +7,7 @@ namespace App\Providers;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use App\Renderers\TwigRenderer;
 
-class ViewProvider extends AbstractServiceProvider
+final class ViewProvider extends AbstractServiceProvider
 {
     protected $provides = [
         'App\Contracts\Renderer',

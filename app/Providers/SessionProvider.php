@@ -7,7 +7,7 @@ namespace App\Providers;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-class SessionProvider extends AbstractServiceProvider
+final class SessionProvider extends AbstractServiceProvider
 {
     protected $provides = [
         'Symfony\Component\HttpFoundation\Session\SessionInterface',

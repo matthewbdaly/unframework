@@ -7,7 +7,7 @@ namespace App\Providers;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Route\Router;
 
-class RouterProvider extends AbstractServiceProvider
+final class RouterProvider extends AbstractServiceProvider
 {
     protected $provides = [
         'League\Route\Router',

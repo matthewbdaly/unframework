@@ -10,8 +10,13 @@ use Whoops\Exception\Inspector;
 use Whoops\RunInterface;
 use App\Contracts\Exceptions\Handler;
 
-class LogHandler implements Handler
+final class LogHandler implements Handler
 {
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
     public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;

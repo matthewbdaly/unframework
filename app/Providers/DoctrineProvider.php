@@ -9,7 +9,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Doctrine\DBAL\DriverManager;
 
-class DoctrineProvider extends AbstractServiceProvider
+final class DoctrineProvider extends AbstractServiceProvider
 {
     protected $provides = [
         'Doctrine\DBAL\Connection',
