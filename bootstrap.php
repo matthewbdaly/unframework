@@ -7,9 +7,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 if (!defined('BASE_DIR')) {
     define('BASE_DIR', __DIR__ . '/');
 }
-if (!defined('CONTENT_PATH')) {
-    define('CONTENT_PATH', 'content/');
-}
 
 error_reporting(E_ALL);
 
