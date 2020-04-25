@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Providers;
 
@@ -17,9 +19,9 @@ class TwigProvider extends AbstractServiceProvider
         // Register items
         $this->getContainer()
              ->add('Twig\Environment', function () {
-                 $loader = new FilesystemLoader(BASE_DIR.'/app/views');
+                 $loader = new FilesystemLoader(BASE_DIR . '/app/views');
                  $twig = new Environment($loader, array(
-                     'cache' => BASE_DIR.'/cache/views',
+                     'cache' => BASE_DIR . '/cache/views',
                  ));
                  return $twig;
              });

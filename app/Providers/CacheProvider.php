@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Providers;
 
@@ -17,7 +19,7 @@ class CacheProvider extends AbstractServiceProvider
         // Register items
         $this->getContainer()
              ->add('Psr\Cache\CacheItemPoolInterface', function () {
-                 $driver = new FileSystem;
+                 $driver = new FileSystem();
                  $pool = new Pool($driver);
                  return $pool;
              });

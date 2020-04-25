@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace App;
 
@@ -76,9 +78,9 @@ class Kernel implements KernelContract
 
     private function setupContainer(): void
     {
-        $container = new Container;
+        $container = new Container();
         $container->delegate(
-            new ReflectionContainer
+            new ReflectionContainer()
         );
 
         foreach ($this->providers as $provider) {
@@ -95,9 +97,9 @@ class Kernel implements KernelContract
         error_reporting(E_ALL);
         $environment = getenv('APP_ENV');
 
-        $whoops = new \Whoops\Run;
+        $whoops = new \Whoops\Run();
         if ($environment !== 'production') {
-            $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+            $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
         } else {
             $handler = $this->container->get('App\Contracts\Exceptions\Handler');
             $whoops->pushHandler(new \Whoops\Handler\CallbackHandler($handler));
@@ -107,10 +109,10 @@ class Kernel implements KernelContract
 
     private function setupRoutes(): void
     {
-        $strategy = (new ApplicationStrategy)->setContainer($this->container);
+        $strategy = (new ApplicationStrategy())->setContainer($this->container);
         $router = $this->container->get('League\Route\Router')
             ->setStrategy($strategy);
-        require_once BASE_DIR.'/routes.php';
+        require_once BASE_DIR . '/routes.php';
         $this->router = $router;
     }
 

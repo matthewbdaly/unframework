@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Console;
 
@@ -22,7 +24,7 @@ class Server extends Command
         if (!$port = $input->getOption('port')) {
             $port = 8000;
         }
-        $output->writeln('Running PHP development server on port '.$port.'...');
-        passthru('php -S localhost:'.$port.' -t '.getcwd().'/public');
+        $output->writeln('Running PHP development server on port ' . $port . '...');
+        passthru('php -S localhost:' . $port . ' -t ' . getcwd() . '/public');
     }
 }

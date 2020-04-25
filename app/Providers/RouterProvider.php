@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Providers;
 
@@ -16,7 +18,7 @@ class RouterProvider extends AbstractServiceProvider
         // Register items
         $this->getContainer()
             ->add('League\Route\Router', function () {
-                return new Router;
+                return new Router();
             });
     }
 }

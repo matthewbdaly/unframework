@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Providers;
 
@@ -16,7 +18,7 @@ class SessionProvider extends AbstractServiceProvider
         // Register items
         $this->getContainer()
              ->add('Symfony\Component\HttpFoundation\Session\SessionInterface', function () {
-                 return new Session;
+                 return new Session();
              });
     }
 }
