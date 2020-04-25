@@ -107,7 +107,7 @@ final class Kernel implements KernelContract
         $strategy = (new ApplicationStrategy())->setContainer($this->container);
         $router = $this->container->get('League\Route\Router')
             ->setStrategy($strategy);
-        require_once BASE_DIR . '/routes.php';
+        require_once ROOT_DIR . '/routes.php';
         $this->router = $router;
     }
 

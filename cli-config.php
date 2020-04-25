@@ -2,10 +2,10 @@
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
 use App\Kernel;
 
-if (!defined('BASE_DIR')) {
-    define('BASE_DIR', __DIR__);
+if (!defined('ROOT_DIR')) {
+    define('ROOT_DIR', __DIR__);
 }
-$dotenv = new Dotenv\Dotenv(BASE_DIR);
+$dotenv = new Dotenv\Dotenv(ROOT_DIR);
 $dotenv->load();
 
 $app = (new Kernel)->bootstrap();

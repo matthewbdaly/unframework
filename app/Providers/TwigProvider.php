@@ -19,9 +19,9 @@ final class TwigProvider extends AbstractServiceProvider
         // Register items
         $this->getContainer()
              ->add('Twig\Environment', function () {
-                 $loader = new FilesystemLoader(BASE_DIR . '/app/views');
+                 $loader = new FilesystemLoader(ROOT_DIR . '/app/views');
                  $twig = new Environment($loader, array(
-                     'cache' => BASE_DIR . '/cache/views',
+                     'cache' => ROOT_DIR . '/cache/views',
                  ));
                  return $twig;
              });

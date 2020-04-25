@@ -12,8 +12,8 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     public function setUp(): void
     {
-        if (!defined('BASE_DIR')) {
-            define('BASE_DIR', __DIR__ . '/../');
+        if (!defined('ROOT_DIR')) {
+            define('ROOT_DIR', __DIR__ . '/../');
         }
         $this->app = new \App\Kernel();
         $this->app->bootstrap();

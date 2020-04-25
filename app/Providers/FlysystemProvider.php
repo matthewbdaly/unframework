@@ -19,7 +19,7 @@ final class FlysystemProvider extends AbstractServiceProvider
         // Register items
         $this->getContainer()
             ->add('League\Flysystem\Filesystem', function () {
-                $adapter = new Local(BASE_DIR . '/public/storage/');
+                $adapter = new Local(ROOT_DIR . '/public/storage/');
                 return new Filesystem($adapter);
             });
     }
