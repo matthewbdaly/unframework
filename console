@@ -1,15 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/bootstrap.php';
 
 use Symfony\Component\Console\Application;
-
-if (!defined('BASE_DIR')) {
-    define('BASE_DIR', __DIR__);
-}
-$dotenv = Dotenv\Dotenv::createImmutable(BASE_DIR);
-$dotenv->load();
 
 $app = new Application();
 $kernel = new App\Kernel;
