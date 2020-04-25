@@ -31,6 +31,7 @@ final class DoctrineProvider extends AbstractServiceProvider
             $paths = ['app/Doctrine/Entities'];
             $isDevMode = false;
             $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+            $config->setQueryCacheImpl($container->get('Doctrine\Common\Cache\Cache'));
             return EntityManager::create($container->get('Doctrine\DBAL\Connection'), $config);
         });
     }
