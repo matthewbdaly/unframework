@@ -15,4 +15,8 @@ $request = Zend\Diactoros\ServerRequestFactory::fromGlobals(
 $app = new App\Kernel();
 $response = $app->bootstrap()
     ->handle($request);
-$app->getContainer()->get('emitter')->emit($response);
+$container = $app->getContainer();
+$emitter = $container->get('emitter');
+$clockwork = $container->get('Clockwork\Support\Vanilla\Clockwork');
+$clockwork->requestProcessed();
+$emitter->emit($response);

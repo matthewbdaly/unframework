@@ -31,6 +31,7 @@ final class Kernel implements KernelContract
      */
     private $providers = [
         'App\Providers\ContainerProvider',
+        'App\Providers\ClockworkProvider',
         'App\Providers\CacheProvider',
         'App\Providers\DoctrineProvider',
         'App\Providers\EventProvider',
