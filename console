@@ -4,11 +4,15 @@
 require_once __DIR__.'/bootstrap.php';
 
 use Symfony\Component\Console\Application;
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
 $app = new Application();
 $kernel = new App\Kernel;
 $kernel->bootstrap();
 $container = $kernel->getContainer();
+$helperSet = ConsoleRunner::createHelperSet($container->get('Doctrine\ORM\EntityManager'));
+$app->setHelperSet($helperSet);
+ConsoleRunner::addCommands($app);
 $app->add($container->get('App\Console\Shell'));
 $app->add($container->get('App\Console\Server'));
 $app->run();

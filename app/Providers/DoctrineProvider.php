@@ -23,7 +23,7 @@ final class DoctrineProvider extends AbstractServiceProvider
         $container->add('Doctrine\DBAL\Connection', function () {
             $dbParams = array(
                 'driver' => getenv('DB_TYPE'),
-                'path' => getenv('DB_PATH'),
+                'path' => ROOT_DIR . getenv('DB_PATH'),
             );
             return DriverManager::getConnection($dbParams);
         });
