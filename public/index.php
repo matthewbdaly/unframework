@@ -16,7 +16,8 @@ $app = new App\Kernel();
 $response = $app->bootstrap()
     ->handle($request);
 $container = $app->getContainer();
-$emitter = $container->get('emitter');
 $clockwork = $container->get('Clockwork\Support\Vanilla\Clockwork');
 $clockwork->requestProcessed();
-$emitter->emit($response);
+
+// send the response to the browser
+(new Laminas\HttpHandlerRunner\Emitter\SapiEmitter())->emit($response);
